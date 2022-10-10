@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <center>
+        <div class="top-bar">
+            <p class="topmessage">
+                Bananas Menu System
+            </p>
+            
+        </div>
+        <div class="top">
+            <p class="topTextBig">
+                Menu Control
+            </p>
+            <p class="normalText">
+                Add Item Here
+            </p>
+            <form action="/addItem" method="post">
+                <div class="box-in">
+                <input class="input-box" required type="text" name="name" placeholder="Item Name" id="nameplace"> <br>
+                <input class="input-box" required type="text" name="price" placeholder="Item Price" id="priceplace">
+            </div>
+            <br>
+            <input type="submit" value="Add" class="submit-btn">
+            </form>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        <p class="topTextBig">
+            Menu Item
+        </p>
+        <div class="datahere">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+        
+        
+        
+                <% for(var i =0 ;i < data.length; i++) {%>
+                    <tr>
+                        <td>
+                            <%= data[i][1]["name"]%>
+                        </td>
+                        <td>
+                            <%= data[i][1]["price"]%>
+                        </td>
+                    </tr>
+                    <%}%>
+            </table>
+        </div>
+
+        <br>
+        <%=message%>
+
+        <br>
+        <br>
+        <hr>
+        <br>
+        <p class="topTextBig">
+            Delete Item
+        </p>
+        <p class="normalText">
+            Enter Item Name To Delete 
+        </p>
+        <form action="/deleteItem" method="post">
+            <div class="box-in">
+            <input class="input-box" required type="text" name="name" placeholder="Item Name" id="nameplace">
+        </div>
+        <br>
+        <input type="submit" value="Delete" class="submit-btn">
+        </form>
+
+
+        <br>
+        <br>
+        <br>
+        <footer>
+            @Peter Karki 2022
+        </footer>
+    </center>
+</body>
+<script src="main.js"></script>
+</html>
